@@ -112,7 +112,7 @@ void Game::update(sf::Time t_deltaTime)
 /// </summary>
 void Game::render()
 {
-	m_window.clear(sf::Color::White);
+	m_window.clear(sf::Color::Black);
 	m_player.render(m_window);
 	m_window.display();
 }
@@ -137,13 +137,27 @@ void Game::render()
 //
 //}
 
-
 void Game::boundaryCollisionCheck()
 {
 	sf::Vector2f playerPos = m_player.playerSprite.getPosition();
 
-	if (playerPos.x > m_window.getSize().x)
+	if (playerPos.x > sf::VideoMode::getDesktopMode().width)
 	{
-		m_player.playerSprite.setPosition(-15.0f, m_player.playerSprite.getPosition().y);
+		m_player.playerSprite.setPosition(0 - m_player.playerOffset, m_player.playerSprite.getPosition().y);
 	}
+	if (playerPos.x < 0 - m_player.playerOffset)
+	{
+		m_player.playerSprite.setPosition(sf::VideoMode::getDesktopMode().width, m_player.playerSprite.getPosition().y);
+	}
+	
+	if (playerPos.y > sf::VideoMode::getDesktopMode().height)
+	{
+		m_player.playerSprite.setPosition(m_player.playerSprite.getPosition().x, 0 - m_player.playerOffset);
+	}
+	if (playerPos.y < 0 - m_player.playerOffset)
+	{
+		m_player.playerSprite.setPosition(m_player.playerSprite.getPosition().x, sf::VideoMode::getDesktopMode().height);
+	}
+
 }
+

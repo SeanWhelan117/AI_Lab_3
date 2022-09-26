@@ -15,6 +15,8 @@ public:
 
 	sf::Sprite playerSprite;
 
+	int playerOffset = 16;
+
 private:
 	void playerInput(sf::Time t_deltaTime);
 	void rotatePlayer(int t_rotation);
