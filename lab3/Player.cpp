@@ -20,9 +20,9 @@ void Player::loadFiles()
 }
 
 
-void Player::update()
+void Player::update(sf::Time t_deltaTime)
 {
-	playerInput();
+	playerInput(t_deltaTime);
 	movePlayer();
 }
 
@@ -33,7 +33,7 @@ void Player::render(sf::RenderWindow& t_window)
 
 
 
-void Player::playerInput()
+void Player::playerInput(sf::Time t_deltaTime)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
@@ -46,10 +46,15 @@ void Player::playerInput()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-
+		float forx = speed * sin(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
+		float fory = speed * -cos(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
+		playerSprite.move(forx, fory);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
+		float forx2 = speed * -sin(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
+		float fory2 = speed * cos(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
+		playerSprite.move(forx2, fory2);
 	}
 }
 

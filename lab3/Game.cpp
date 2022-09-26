@@ -97,7 +97,7 @@ void Game::processKeys(sf::Event t_event)
 /// <param name="t_deltaTime">time interval per frame</param>
 void Game::update(sf::Time t_deltaTime)
 {
-	m_player.update();
+	m_player.update(t_deltaTime);
 	boundaryCollisionCheck();
 
 	if (m_exitGame)
