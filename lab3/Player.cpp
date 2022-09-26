@@ -46,15 +46,15 @@ void Player::playerInput(sf::Time t_deltaTime)
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		float forx = speed * sin(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
-		float fory = speed * -cos(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
-		playerSprite.move(forx, fory);
+		float forwardx = speed * sin(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
+		float forwardy = speed * -cos(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
+		playerSprite.move(forwardx, forwardy);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		float forx2 = speed * -sin(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
-		float fory2 = speed * cos(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
-		playerSprite.move(forx2, fory2);
+		float backwardsX = speed * -sin(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
+		float backwardsY = speed * cos(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
+		playerSprite.move(backwardsX, backwardsY);
 	}
 }
 

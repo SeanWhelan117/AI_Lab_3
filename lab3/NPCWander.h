@@ -15,7 +15,13 @@ public:
 	sf::Sprite wanderSprite;
 
 private:
-	void wanderSetup();
+	void wandering(sf::Time t_deltaTime);
+
+	
 	sf::Texture wanderTexture;
+
+	float angle = 0;
+	float pi = 3.141592654f;
+	int speed = 10;
 };
 
