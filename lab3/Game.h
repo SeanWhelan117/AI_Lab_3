@@ -11,6 +11,7 @@
 /// </summary>
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include "NPCWander.h"
 
 class Game
 {
@@ -23,6 +24,7 @@ public:
 	void run();
 
 	Player m_player;
+	NPCWander m_wander;
 	void boundaryCollisionCheck();
 
 private:

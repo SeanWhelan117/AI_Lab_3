@@ -98,6 +98,11 @@ void Game::processKeys(sf::Event t_event)
 void Game::update(sf::Time t_deltaTime)
 {
 	m_player.update(t_deltaTime);
+	m_wander.update(t_deltaTime);
+
+
+
+
 	boundaryCollisionCheck();
 
 	if (m_exitGame)
@@ -114,6 +119,7 @@ void Game::render()
 {
 	m_window.clear(sf::Color::Black);
 	m_player.render(m_window);
+	m_wander.render(m_window);
 	m_window.display();
 }
 
