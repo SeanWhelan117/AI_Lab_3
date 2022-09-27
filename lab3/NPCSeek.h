@@ -8,13 +8,17 @@ public:
 
 	void loadFiles();
 
-	void update(sf::Time t_deltaTime);
+	void update(sf::Time t_deltaTime, sf::Vector2f t_playerPos);
 
 	void render(sf::RenderWindow& t_window);
+
 
 	sf::Sprite seekSprite;
 
 private:
+
+	void seeking(sf::Vector2f t_playerPos);
+
 
 
 	sf::Texture seekTexture;

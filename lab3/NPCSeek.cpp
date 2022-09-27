@@ -18,11 +18,18 @@ void NPCSeek::loadFiles()
 	}
 }
 
-void NPCSeek::update(sf::Time t_deltaTime)
+void NPCSeek::update(sf::Time t_deltaTime, sf::Vector2f t_playerPos)
 {
+	seeking(t_playerPos);
 }
 
 void NPCSeek::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(seekSprite);
+}
+
+void NPCSeek::seeking(sf::Vector2f t_playerPos)
+{
+	//desired_velocity = normalize(position - target) * max_speed
+		//steering = desired_velocity - velocity
 }

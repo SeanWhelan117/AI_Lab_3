@@ -161,7 +161,7 @@ void Game::update(sf::Time t_deltaTime)
 	}
 	if (seekActive == true)
 	{
-		m_seek.update(t_deltaTime);
+		m_seek.update(t_deltaTime, m_player.playerSprite.getPosition());
 	}
 	if (pursueActive == true)
 	{
