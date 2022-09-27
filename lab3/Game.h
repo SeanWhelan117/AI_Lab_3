@@ -12,6 +12,9 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "NPCWander.h"
+#include "NPCArrive.h"
+#include "NPCPursue.h"
+#include "NPCSeek.h"
 
 class Game
 {
@@ -25,6 +28,10 @@ public:
 
 	Player m_player;
 	NPCWander m_wander;
+	NPCArrive m_arrive;
+	NPCPursue m_pursue;
+	NPCSeek m_seek;
+
 	void boundaryCollisionCheck();
 
 private:
@@ -39,6 +46,11 @@ private:
 	sf::RenderWindow m_window; // main SFML window
 
 	bool m_exitGame; // control exiting game
+
+	bool wanderActive = false;
+	bool arriveActive = false;
+	bool pursueActive = false;
+	bool seekActive = false;
 
 };
 #endif // !GAME_HPP

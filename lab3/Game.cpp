@@ -85,9 +85,62 @@ void Game::processEvents()
 /// <param name="t_event">key press event</param>
 void Game::processKeys(sf::Event t_event)
 {
-	if (sf::Keyboard::Escape == t_event.key.code)
+	//if (sf::Keyboard::Escape == t_event.key.code)
+	//{
+	//	m_exitGame = true;
+	//}
+
+	switch (t_event.key.code)
 	{
+	case sf::Keyboard::Escape:
 		m_exitGame = true;
+		break;
+
+	case sf::Keyboard::Num1:
+		if (wanderActive == false)
+		{
+			wanderActive = true;
+		}
+		else if (wanderActive == true)
+		{
+			wanderActive = false;
+		}
+		break;
+
+	case sf::Keyboard::Num2:
+		if (arriveActive == false)
+		{
+			arriveActive = true;
+		}
+		else if (arriveActive == true)
+		{
+			arriveActive = false;
+		}
+		break;
+
+	case sf::Keyboard::Num3:
+		if (seekActive == false)
+		{
+			seekActive = true;
+		}
+		else if (seekActive == true)
+		{
+			seekActive = false;
+		}
+		break;
+
+	case sf::Keyboard::Num4:
+		if (pursueActive == false)
+		{
+			pursueActive = true;
+		}
+		else if (pursueActive == true)
+		{
+			pursueActive = false;
+		}
+		break;
+	default:
+		break;
 	}
 }
 
@@ -98,9 +151,22 @@ void Game::processKeys(sf::Event t_event)
 void Game::update(sf::Time t_deltaTime)
 {
 	m_player.update(t_deltaTime);
-	m_wander.update(t_deltaTime);
-
-
+	if (wanderActive == true)
+	{
+		m_wander.update(t_deltaTime);
+	}
+	if (arriveActive == true)
+	{
+		m_arrive.update(t_deltaTime);
+	}
+	if (seekActive == true)
+	{
+		m_seek.update(t_deltaTime);
+	}
+	if (pursueActive == true)
+	{
+		m_pursue.update(t_deltaTime);
+	}
 
 
 	boundaryCollisionCheck();
@@ -118,8 +184,27 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
+
 	m_player.render(m_window);
-	m_wander.render(m_window);
+
+	if (wanderActive == true)
+	{
+		m_wander.render(m_window);
+	}
+
+	if (arriveActive == true)
+	{
+		m_arrive.render(m_window);
+	}
+	if (seekActive == true)
+	{
+		m_seek.render(m_window);
+	}
+	if (pursueActive == true)
+	{
+		m_pursue.render(m_window);
+	}
+
 	m_window.display();
 }
 

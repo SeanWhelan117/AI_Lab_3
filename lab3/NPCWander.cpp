@@ -39,7 +39,7 @@ void NPCWander::wandering(sf::Time t_deltaTime)
 	//	//Full acceleration in direction we are facing
 	//	steering.linear = maxAcc * my.orientation.asVector()
 
-	int randOrientation = rand() % 3 + 1;
+	int randOrientation = rand() % 2 - 1;
 	std::cout << randOrientation << std::endl;
 
 	angle = wanderSprite.getRotation();

@@ -21,11 +21,17 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NPCArrive.cpp" />
+    <ClCompile Include="NPCPursue.cpp" />
+    <ClCompile Include="NPCSeek.cpp" />
     <ClCompile Include="NPCWander.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="NPCArrive.h" />
+    <ClInclude Include="NPCPursue.h" />
+    <ClInclude Include="NPCSeek.h" />
     <ClInclude Include="NPCWander.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>

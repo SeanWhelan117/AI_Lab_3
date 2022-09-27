@@ -33,6 +33,15 @@
     <ClCompile Include="NPCWander.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NPCSeek.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NPCArrive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NPCPursue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -42,6 +51,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NPCWander.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NPCSeek.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NPCArrive.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NPCPursue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
