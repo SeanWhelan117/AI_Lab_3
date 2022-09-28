@@ -21,6 +21,7 @@ private:
 
 	/*float angle = 0;
 	float pi = 3.141592654f;
-	int speed = 10;*/
+		float speed = 10.0f;
+*/
 };
 

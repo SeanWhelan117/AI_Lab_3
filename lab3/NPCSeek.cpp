@@ -3,7 +3,7 @@
 NPCSeek::NPCSeek()
 {
 	loadFiles();
-	seekSprite.setPosition(900, 700);
+	seekSprite.setPosition(1800, 700);
 	seekSprite.setTexture(seekTexture);
 	seekSprite.setOrigin(seekSprite.getGlobalBounds().width / 2, seekSprite.getGlobalBounds().height / 2);
 	seekSprite.setScale(6, 6);
@@ -18,9 +18,9 @@ void NPCSeek::loadFiles()
 	}
 }
 
-void NPCSeek::update(sf::Time t_deltaTime, sf::Vector2f t_playerPos)
+void NPCSeek::update(sf::Time t_deltaTime, Player& t_player)
 {
-	seeking(t_playerPos);
+	seeking(t_player, t_deltaTime);
 }
 
 void NPCSeek::render(sf::RenderWindow& t_window)
@@ -28,8 +28,20 @@ void NPCSeek::render(sf::RenderWindow& t_window)
 	t_window.draw(seekSprite);
 }
 
-void NPCSeek::seeking(sf::Vector2f t_playerPos)
+void NPCSeek::seeking(Player &t_player, sf::Time t_deltaTime)
 {
 	//desired_velocity = normalize(position - target) * max_speed
-		//steering = desired_velocity - velocity
+
+	sf::Vector2f playerPosition = t_player.playerSprite.getPosition();
+	sf::Vector2f seekerPosition = seekSprite.getPosition();
+
+	//velocity = playerPosition - seekerPosition; 
+	//float squareRootVelocity = sqrtf(velocity.x * velocity.x + velocity.y * velocity.y);
+	//velocity = sf::Vector2f{ velocity.x / squareRootVelocity , velocity.y / squareRootVelocity };
+	//velocity = velocity * speed;
+	
+
+	float squareRootVelocity = sqrtf(velocity.x * velocity.x + velocity.y * velocity.y);
+	velocity = ((playerPosition - seekerPosition) / squareRootVelocity) * speed;
+	
 }

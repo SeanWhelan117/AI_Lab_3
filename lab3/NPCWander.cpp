@@ -3,7 +3,7 @@
 NPCWander::NPCWander()
 {
 	loadFiles();
-	wanderSprite.setPosition(700, 700);
+	wanderSprite.setPosition(1500, 700);
 	wanderSprite.setTexture(wanderTexture);
 	wanderSprite.setOrigin(wanderSprite.getGlobalBounds().width / 2, wanderSprite.getGlobalBounds().height / 2);
 	wanderSprite.setScale(6, 6);
@@ -46,7 +46,6 @@ void NPCWander::wandering(sf::Time t_deltaTime)
 
 	angle = wanderSprite.getRotation();
 	angle = angle + randOrientation;
-
 	
 	float forwardx = speed * sin(angle * t_deltaTime.asMilliseconds() / 1000);
 	float forwardy = speed * -cos(angle * t_deltaTime.asMilliseconds() / 1000);

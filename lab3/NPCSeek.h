@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Player.h"
 class NPCSeek
 {
 public:
@@ -8,7 +9,7 @@ public:
 
 	void loadFiles();
 
-	void update(sf::Time t_deltaTime, sf::Vector2f t_playerPos);
+	void update(sf::Time t_deltaTime, Player& t_player);
 
 	void render(sf::RenderWindow& t_window);
 
@@ -17,14 +18,14 @@ public:
 
 private:
 
-	void seeking(sf::Vector2f t_playerPos);
+	void seeking(Player &t_player, sf::Time t_deltaTime);
 
-
+	sf::Vector2f velocity;
 
 	sf::Texture seekTexture;
 
-	/*float angle = 0;
-	float pi = 3.141592654f;
-	int speed = 10;*/
+	//float angle = 0;
+	//float pi = 3.141592654f;
+	float speed = 10.0f;
 };
 

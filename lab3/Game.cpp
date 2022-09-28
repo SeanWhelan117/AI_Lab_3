@@ -161,7 +161,7 @@ void Game::update(sf::Time t_deltaTime)
 	}
 	if (seekActive == true)
 	{
-		m_seek.update(t_deltaTime, m_player.playerSprite.getPosition());
+		m_seek.update(t_deltaTime, m_player);
 	}
 	if (pursueActive == true)
 	{
@@ -248,6 +248,27 @@ void Game::boundaryCollisionCheck()
 	if (playerPos.y < 0 - m_player.playerOffset)
 	{
 		m_player.playerSprite.setPosition(m_player.playerSprite.getPosition().x, sf::VideoMode::getDesktopMode().height);
+	}
+
+
+	sf::Vector2f wanderPos = m_wander.wanderSprite.getPosition();
+
+	if (wanderPos.x > sf::VideoMode::getDesktopMode().width)
+	{
+		m_wander.wanderSprite.setPosition(0 - m_wander.wanderOffset, m_wander.wanderSprite.getPosition().y);
+	}
+	if (wanderPos.x < 0 - m_wander.wanderOffset)
+	{
+		m_wander.wanderSprite.setPosition(sf::VideoMode::getDesktopMode().width, m_wander.wanderSprite.getPosition().y);
+	}
+
+	if (wanderPos.y > sf::VideoMode::getDesktopMode().height)
+	{
+		m_wander.wanderSprite.setPosition(m_wander.wanderSprite.getPosition().x, 0 - m_wander.wanderOffset);
+	}
+	if (wanderPos.y < 0 - m_wander.wanderOffset)
+	{
+		m_wander.wanderSprite.setPosition(m_wander.wanderSprite.getPosition().x, sf::VideoMode::getDesktopMode().height);
 	}
 
 }

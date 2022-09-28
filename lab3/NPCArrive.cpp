@@ -3,7 +3,7 @@
 NPCArrive::NPCArrive()
 {
 	loadFiles();
-	arriveSprite.setPosition(1300, 700);
+	arriveSprite.setPosition(2400, 700);
 	arriveSprite.setTexture(arriveTexture);
 	arriveSprite.setOrigin(arriveSprite.getGlobalBounds().width / 2, arriveSprite.getGlobalBounds().height / 2);
 	arriveSprite.setScale(6, 6);
