@@ -25,7 +25,7 @@ private:
 	sf::Texture seekTexture;
 
 	//float angle = 0;
-	//float pi = 3.141592654f;
-	float speed = 10.0f;
+	const float PI = 3.141592654f;
+	float speed = 6.0f;
 };
 

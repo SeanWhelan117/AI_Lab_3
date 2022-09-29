@@ -34,14 +34,20 @@ void NPCSeek::seeking(Player &t_player, sf::Time t_deltaTime)
 
 	sf::Vector2f playerPosition = t_player.playerSprite.getPosition();
 	sf::Vector2f seekerPosition = seekSprite.getPosition();
-
-	//velocity = playerPosition - seekerPosition; 
-	//float squareRootVelocity = sqrtf(velocity.x * velocity.x + velocity.y * velocity.y);
-	//velocity = sf::Vector2f{ velocity.x / squareRootVelocity , velocity.y / squareRootVelocity };
-	//velocity = velocity * speed;
 	
 
+	float angleX = seekerPosition.x - playerPosition.x;
+	float angleY = seekerPosition.y - playerPosition.y;
+
+	float rotation = (-atan2(angleX, angleY)) * 180 / PI;
+	seekSprite.setRotation(rotation);
+	
+
+	velocity = playerPosition - seekerPosition; 
 	float squareRootVelocity = sqrtf(velocity.x * velocity.x + velocity.y * velocity.y);
-	velocity = ((playerPosition - seekerPosition) / squareRootVelocity) * speed;
+	velocity = sf::Vector2f{ velocity.x / squareRootVelocity , velocity.y / squareRootVelocity };
+	velocity = velocity * speed;
+	
+	seekSprite.move(velocity);
 	
 }
