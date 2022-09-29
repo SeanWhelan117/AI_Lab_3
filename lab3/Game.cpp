@@ -157,7 +157,7 @@ void Game::update(sf::Time t_deltaTime)
 	}
 	if (arriveActive == true)
 	{
-		m_arrive.update(t_deltaTime);
+		m_arrive.update(m_player, t_deltaTime);
 	}
 	if (seekActive == true)
 	{

@@ -18,11 +18,35 @@ void NPCArrive::loadFiles()
 	}
 }
 
-void NPCArrive::update(sf::Time t_deltaTime)
+void NPCArrive::update(Player &t_player, sf::Time t_deltaTime)
 {
+	arriving(t_player, t_deltaTime);
 }
 
 void NPCArrive::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(arriveSprite);
+}
+
+void NPCArrive::arriving(Player& t_player, sf::Time t_deltaTime)
+{
+	//desired_velocity = normalize(position - target) * max_speed
+
+	sf::Vector2f playerPosition = t_player.playerSprite.getPosition();
+	sf::Vector2f seekerPosition = arriveSprite.getPosition();
+
+
+	float angleX = seekerPosition.x - playerPosition.x;
+	float angleY = seekerPosition.y - playerPosition.y;
+
+	float rotation = (-atan2(angleX, angleY)) * 180 / PI;
+	arriveSprite.setRotation(rotation);
+
+
+	velocity = playerPosition - seekerPosition;
+	float squareRootVelocity = sqrtf(velocity.x * velocity.x + velocity.y * velocity.y);
+	velocity = sf::Vector2f{ velocity.x / squareRootVelocity , velocity.y / squareRootVelocity };
+	velocity = velocity * speed;
+
+	arriveSprite.move(velocity);
 }
