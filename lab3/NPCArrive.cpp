@@ -48,5 +48,18 @@ void NPCArrive::arriving(Player& t_player, sf::Time t_deltaTime)
 	velocity = sf::Vector2f{ velocity.x / squareRootVelocity , velocity.y / squareRootVelocity };
 	velocity = velocity * speed;
 
+	if (squareRootVelocity < 20)
+	{
+		speed = 0;
+	}
+	else if (squareRootVelocity < 200)
+	{
+		speed = lowerSpeed;
+	}
+	else
+	{
+		speed = 8;
+	}
+
 	arriveSprite.move(velocity);
 }

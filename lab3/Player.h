@@ -21,7 +21,6 @@ private:
 	void playerInput(sf::Time t_deltaTime);
 	void rotatePlayer(int t_rotation);
 
-	void movePlayer();
 	sf::Texture playerTexture;
 
 	//sf::Vector2f speed;

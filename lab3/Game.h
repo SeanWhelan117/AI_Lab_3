@@ -52,6 +52,9 @@ private:
 	bool pursueActive = false;
 	bool seekActive = false;
 
+
+	sf::Font m_ArialBlackfont;
+	sf::Text m_welcomeMessage;
 };
 #endif // !GAME_HPP
 

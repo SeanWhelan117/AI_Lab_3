@@ -20,6 +20,8 @@ Game::Game() :
 	m_window{ sf::VideoMode{ sf::VideoMode::getDesktopMode().width , sf::VideoMode::getDesktopMode().height , 32U }, "SFML Game" },
 	m_exitGame{ false } //when true game will exit
 {
+
+	setupFontAndText();
 }
 
 /// <summary>
@@ -185,6 +187,8 @@ void Game::render()
 {
 	m_window.clear(sf::Color::Black);
 
+	m_window.draw(m_welcomeMessage);
+
 	m_player.render(m_window);
 
 	if (wanderActive == true)
@@ -208,25 +212,23 @@ void Game::render()
 	m_window.display();
 }
 
-///// <summary>
-///// load the font and setup the text message for screen
-///// </summary>
-//void Game::setupFontAndText()
-//{
-//	if (!m_ArialBlackfont.loadFromFile("ASSETS\\FONTS\\ariblk.ttf"))
-//	{
-//		std::cout << "problem loading arial black font" << std::endl;
-//	}
-//	m_welcomeMessage.setFont(m_ArialBlackfont);
-//	m_welcomeMessage.setString("SFML Game");
-//	m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
-//	m_welcomeMessage.setPosition(40.0f, 40.0f);
-//	m_welcomeMessage.setCharacterSize(80U);
-//	m_welcomeMessage.setOutlineColor(sf::Color::Red);
-//	m_welcomeMessage.setFillColor(sf::Color::Black);
-//	m_welcomeMessage.setOutlineThickness(3.0f);
-//
-//}
+/// <summary>
+/// load the font and setup the text message for screen
+/// </summary>
+void Game::setupFontAndText()
+{
+	if (!m_ArialBlackfont.loadFromFile("ASSETS\\FONTS\\ariblk.ttf"))
+	{
+		std::cout << "problem loading arial black font" << std::endl;
+	}
+	m_welcomeMessage.setFont(m_ArialBlackfont);
+	m_welcomeMessage.setString("To Enable Enemies: Press ->  1 = Wander, 2 = Arrive, 3 = Seek, 4 = Pursue");
+	m_welcomeMessage.setStyle(sf::Text::Bold);
+	m_welcomeMessage.setPosition(300.0f, 40.0f);
+	m_welcomeMessage.setCharacterSize(80U);
+	m_welcomeMessage.setFillColor(sf::Color::White);
+
+}
 
 void Game::boundaryCollisionCheck()
 {

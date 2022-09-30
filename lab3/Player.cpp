@@ -23,7 +23,6 @@ void Player::loadFiles()
 void Player::update(sf::Time t_deltaTime)
 {
 	playerInput(t_deltaTime);
-	movePlayer();
 }
 
 void Player::render(sf::RenderWindow& t_window)
@@ -56,18 +55,21 @@ void Player::playerInput(sf::Time t_deltaTime)
 		float backwardsY = speed * cos(playerSprite.getRotation() * t_deltaTime.asMilliseconds() / 1000);
 		playerSprite.move(backwardsX, backwardsY);
 	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+	{
+		speed = 15;
+	}
+	else
+	{
+		speed = 10;
+	}
 }
 
 
 void Player::rotatePlayer(int t_rotation)
 {
 	playerSprite.rotate(t_rotation);
-
 }
 
-
-void Player::movePlayer()
-{
-
-}
 
