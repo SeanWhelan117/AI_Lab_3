@@ -16,8 +16,10 @@ public:
 
 	sf::Sprite arriveSprite;
 
+	void setSpeed(int t_speed);
 private:
 	void arriving(Player& t_player, sf::Time t_deltaTime);
+
 
 
 	sf::Texture arriveTexture;
@@ -28,6 +30,8 @@ private:
 	const float PI = 3.141592654f;
 	float speed = 8.0f;
 	float lowerSpeed = 3.0f;
+
+	float ogSpeed = 0;
 
 };
 

@@ -21,9 +21,16 @@ private:
 	void playerInput(sf::Time t_deltaTime);
 	void rotatePlayer(int t_rotation);
 
+	void movePlayer(sf::Time t_deltaTime);
+
 	sf::Texture playerTexture;
 
+
+	float velocityX;
+	float velocityY;
 	//sf::Vector2f speed;
-	int speed = 10;
+	int speed = 0;
+	int maxSpeed = 15;
+
 };
 

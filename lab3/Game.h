@@ -28,7 +28,7 @@ public:
 
 	Player m_player;
 	NPCWander m_wander;
-	NPCArrive m_arrive;
+	NPCArrive m_arrive[2];
 	NPCPursue m_pursue;
 	NPCSeek m_seek;
 
@@ -51,6 +51,8 @@ private:
 	bool arriveActive = false;
 	bool pursueActive = false;
 	bool seekActive = false;
+
+	bool arriveSpeedsSet = false;
 
 
 	sf::Font m_ArialBlackfont;

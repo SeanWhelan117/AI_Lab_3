@@ -58,8 +58,15 @@ void NPCArrive::arriving(Player& t_player, sf::Time t_deltaTime)
 	}
 	else
 	{
-		speed = 8;
+		speed = ogSpeed;
 	}
 
 	arriveSprite.move(velocity);
+}
+
+
+void NPCArrive::setSpeed(int t_speed)
+{
+	speed = t_speed;
+	ogSpeed = speed;
 }

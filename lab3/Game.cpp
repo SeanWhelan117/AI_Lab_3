@@ -159,7 +159,14 @@ void Game::update(sf::Time t_deltaTime)
 	}
 	if (arriveActive == true)
 	{
-		m_arrive.update(m_player, t_deltaTime);
+		m_arrive[0].update(m_player, t_deltaTime);
+		m_arrive[1].update(m_player, t_deltaTime);
+		if (arriveSpeedsSet == false)
+		{
+			arriveSpeedsSet = true;
+			m_arrive[0].setSpeed(12);
+			m_arrive[1].setSpeed(8);
+		}
 	}
 	if (seekActive == true)
 	{
@@ -198,7 +205,9 @@ void Game::render()
 
 	if (arriveActive == true)
 	{
-		m_arrive.render(m_window);
+		m_arrive[0].render(m_window);
+		m_arrive[1].render(m_window);
+
 	}
 	if (seekActive == true)
 	{
