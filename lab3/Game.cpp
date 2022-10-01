@@ -20,7 +20,6 @@ Game::Game() :
 	m_window{ sf::VideoMode{ sf::VideoMode::getDesktopMode().width , sf::VideoMode::getDesktopMode().height , 32U }, "SFML Game" },
 	m_exitGame{ false } //when true game will exit
 {
-
 	setupFontAndText();
 }
 
@@ -174,7 +173,7 @@ void Game::update(sf::Time t_deltaTime)
 	}
 	if (pursueActive == true)
 	{
-		m_pursue.update(t_deltaTime);
+		m_pursue.update(t_deltaTime, m_player);
 	}
 
 
