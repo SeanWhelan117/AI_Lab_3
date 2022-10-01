@@ -48,7 +48,7 @@ void NPCPursue::pursuing(Player &t_player)
 	velocity = sf::Vector2f{ velocity.x / squareRootVelocity , velocity.y / squareRootVelocity };
 	velocity = velocity * speed;
 
-	if (squareRootVelocity < 20)
+	/*if (squareRootVelocity < 20)
 	{
 		speed = 0;
 	}
@@ -59,7 +59,7 @@ void NPCPursue::pursuing(Player &t_player)
 	else
 	{
 		speed = ogSpeed;
-	}
+	}*/
 
 	pursueSprite.move(velocity);
 }

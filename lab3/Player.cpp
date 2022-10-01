@@ -39,8 +39,8 @@ void Player::render(sf::RenderWindow& t_window)
 	t_window.draw(playerCircle);
 	t_window.draw(playerSprite);
 	sf::VertexArray lines(sf::LinesStrip, 2);
-	lines[0].position = playerCircle.getPosition();
-	lines[1].position = sf::Vector2f(playerCircle.getPosition().x + getHeadingPoint().x, playerCircle.getPosition().y - getHeadingPoint().y);
+	lines[0].position = playerSprite.getPosition();
+	lines[1].position = getHeadingPoint();
 	t_window.draw(lines);
 
 }
@@ -108,10 +108,13 @@ sf::Vector2f Player::getHeadingPoint()
 	// (x,y) =(r*sin(angle, r*cos(angle)
 
 	float headingX = playerCircleRadius * sin(playerSprite.getRotation());
-	float headingY = playerCircleRadius * cos(playerSprite.getRotation());
-	std::cout << headingX << "  ----  " << headingY << std::endl;
-	sf::Vector2f headingPoint(headingX, headingY);
+	float headingY = playerCircleRadius * -cos(playerSprite.getRotation());
+	//std::cout << headingX << "  ----  " << headingY << std::endl;
 
+
+	sf::Vector2f headingPoint(headingX + playerSprite.getPosition().x, headingY+ playerSprite.getPosition().y);
+
+	std::cout << headingPoint.x << "  ----  " << headingPoint.y << std::endl;
 	return headingPoint;
 }
 
