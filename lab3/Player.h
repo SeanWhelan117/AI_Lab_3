@@ -30,7 +30,7 @@ private:
 	sf::Texture playerTexture;
 
 	sf::CircleShape playerCircle;
-	int playerCircleRadius = 100;
+	int playerCircleRadius = 350;
 	float velocityX;
 	float velocityY;
 	//sf::Vector2f speed;

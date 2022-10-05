@@ -3,11 +3,11 @@
 NPCPursue::NPCPursue()
 {
 	loadFiles();
-	pursueSprite.setPosition(1200, 700);
+	pursueSprite.setPosition(2100, 700);
 	pursueSprite.setTexture(pursueTexture);
 	pursueSprite.setOrigin(pursueSprite.getGlobalBounds().width / 2, pursueSprite.getGlobalBounds().height / 2);
-	//pursueSprite.setScale(6, 6);
-	pursueSprite.setScale(2, 2);
+	pursueSprite.setScale(6, 6);
+	//pursueSprite.setScale(2, 2);
 }
 
 void NPCPursue::loadFiles()

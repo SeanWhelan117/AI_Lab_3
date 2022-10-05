@@ -7,6 +7,7 @@ NPCWander::NPCWander()
 	wanderSprite.setTexture(wanderTexture);
 	wanderSprite.setOrigin(wanderSprite.getGlobalBounds().width / 2, wanderSprite.getGlobalBounds().height / 2);
 	wanderSprite.setScale(6, 6);
+	setUpVisionCone();
 }
 
 void NPCWander::loadFiles()
@@ -21,11 +22,19 @@ void NPCWander::loadFiles()
 void NPCWander::update(sf:: Time t_deltaTime)
 {
 	wandering(t_deltaTime);
+
+	updateVisionCone();
 }
 
 void NPCWander::render(sf::RenderWindow& t_window)
 {
+	
+
 	t_window.draw(wanderSprite);
+
+	t_window.draw(lineLeft, 2, sf::Lines);
+
+
 }
 
 void NPCWander::wandering(sf::Time t_deltaTime)
@@ -64,4 +73,37 @@ void NPCWander::wandering(sf::Time t_deltaTime)
 	
 	wanderSprite.move(normalisedVelocity);
 	wanderSprite.setRotation(angle);
+}
+
+void NPCWander::setUpVisionCone()
+{
+	lineLeft[0].color = sf::Color::Green;
+	lineLeft[1].color = sf::Color::White;
+	lineRight[0].color = sf::Color::Red;
+	lineRight[1].color = sf::Color::Red;
+}
+
+void NPCWander::updateVisionCone()
+{
+
+	visionConeLeftX = radiusVC * sin(angle);
+	visionConeLeftY = radiusVC * -cos(angle);
+	visionConeRightX = radiusVC * sin(angle);
+	visionConeRightY = radiusVC * cos(angle);
+
+	//std::cout << visionConeLeftX << "  ----  " << visionConeLeftY << std::endl;
+
+	sf::Vector2f spritePos = wanderSprite.getPosition();
+
+
+	lineLeft[0].position = spritePos;
+	lineLeft[0].color = sf::Color::Green;
+	lineLeft[1].position = sf::Vector2f(spritePos.x + 100, spritePos.y - 50);
+	lineLeft[1].color = sf::Color::White;
+
+	/*lineRight[0].position = sf::Vector2f(10, 0);
+lineRight[0].color = sf::Color::Red;
+lineRight[1].position = sf::Vector2f(20, 0);
+lineRight[1].color = sf::Color::Red;*/
+
 }

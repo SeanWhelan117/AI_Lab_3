@@ -7,8 +7,8 @@ Player::Player()
 	playerSprite.setPosition(200, 200);
 	playerSprite.setTexture(playerTexture);
 	playerSprite.setOrigin(playerSprite.getGlobalBounds().width / 2, playerSprite.getGlobalBounds().height / 2);
-	//pursueSprite.setScale(6, 6);
-	playerSprite.setScale(2, 2);
+	playerSprite.setScale(6, 6);
+	//playerSprite.setScale(2, 2);
 	setupPlayerCircle();
 }
 
@@ -100,21 +100,21 @@ void Player::setupPlayerCircle()
 {
 	playerCircle.setRadius(playerCircleRadius);
 	playerCircle.setOrigin(playerCircleRadius, playerCircleRadius);
-	playerCircle.setFillColor(sf::Color(0,255,0,100));
+	playerCircle.setFillColor(sf::Color(0,255,0,35));
 }
 
 sf::Vector2f Player::getHeadingPoint()
 {
 	// (x,y) =(r*sin(angle, r*cos(angle)
 
-	float headingX = playerCircleRadius * sin(playerSprite.getRotation());
-	float headingY = playerCircleRadius * -cos(playerSprite.getRotation());
-	//std::cout << headingX << "  ----  " << headingY << std::endl;
+	float headingX = playerCircleRadius * -sin(playerSprite.getRotation());
+	float headingY = playerCircleRadius * cos(playerSprite.getRotation());
+	//std::cout << playerSprite.getRotation() << std::endl;
 
 
 	sf::Vector2f headingPoint(headingX + playerSprite.getPosition().x, headingY+ playerSprite.getPosition().y);
+	//std::cout << headingPoint.x << "  ----  " << headingPoint.y << std::endl;
 
-	std::cout << headingPoint.x << "  ----  " << headingPoint.y << std::endl;
 	return headingPoint;
 }
 
